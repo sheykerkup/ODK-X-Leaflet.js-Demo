@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
-//        myWebView.loadUrl("https://www.outreachy.org/");
+//        myWebView.loadUrl("https://10.12.1.172:8000/assets/index.html");
 //        myWebView.setWebViewClient(new MyWebClient());
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         myWebView.setWebViewClient(new LocalContentWebViewClient(assetLoader));
-
-        myWebView.loadUrl("https://10.12.1.172:8000/assets/index.html");
+//
+        myWebView.loadUrl("http://localhost:8000/assets/index.html");
 //        myWebView.loadUrl("file:///android_asset/index.html");
     }
 }
