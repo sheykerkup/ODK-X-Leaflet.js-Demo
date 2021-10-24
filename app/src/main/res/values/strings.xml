@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ODK-X Leaflet Demo</string>
+
+<!--    app settings-->
+    <string name="baseUrl">https://appassets.androidplatform.net</string>
+    <string name="resDir">/res/</string>
+    <string name="assetsDir">/assets/</string>
+    <string name="indexPage">/assets/index.html</string>
+    <string name="mapPage">/assets/pages/leaflet-map.html</string>
+    <string name="leafletInterface">Android</string>
 </resources>
