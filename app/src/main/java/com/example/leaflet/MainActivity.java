@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mWebView.setWebViewClient(new LocalContentWebViewClient(assetLoader, this));
         mWebView.addJavascriptInterface(new WebAppInterface(this, mWebView), getString(R.string.leafletInterface));
 
-        String url = getString(R.string.baseUrl).concat(getString(R.string.indexPage));
+        String url = getString(R.string.baseUrl).concat(getString(R.string.mapPage));
         mWebView.loadUrl(url);
     }
 
