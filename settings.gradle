@@ -1,0 +1,3 @@
+
+rootProject.name = "ODK-X Leaflet Demo"
+include ':app'
