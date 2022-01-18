@@ -7,6 +7,7 @@ let mapOptions = {
 // Creating a map object
 let map = new L.map('map', mapOptions);
 
+
 //add marker
 let marker = new L.Marker([4.04717, 9.75949]);
 marker.addTo(map)
