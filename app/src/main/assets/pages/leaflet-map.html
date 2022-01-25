@@ -11,6 +11,49 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/leaflet.css">
 
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="flex-1"><i class="fas fa-bars"></i></div>
+            <div class="flex-9">Leaflet Demo with leaflet-offline</div>
+        </nav>
+    </header>
+    <div id="progress-wrapper" class="collapse pb-2">
+        <div class="d-flex">
+          <div class="">Download Progress</div>
+          <div class="flex-grow-1 ml-2 my-1">
+            <div id="progress" class="progress">
+              <div id="progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">495</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div id="map" class="map"></div>
+    <div class="menu show">
+        <h1>Settings</h1>
+        <ul class="list-settings">
+            <li>
+                <label for="providers">Select Providers</label>
+                <select name="providers" id="providers">
+                    <option value="google_maps">Google Maps</option>
+                    <option value="osm_map">OpenStreetMap
+                    </option>
+                    <option value="map_box">MapBox</option>
+                </select>
+            </li>
+            <li>
+                <label for="marker-color">Change Marker Color</label>
+                <input type="color">
+            </li>
+
+            <!-- <li>
+                <label for="marker-color">Change Marker Color</label>
+                <input type="color">
+            </li> -->
+        </ul>
+    </div>
     <script src="/assets/js/leaflet.js"></script>
     <script src="/assets/js/localforage.min.js"></script>
     <script src="/assets/js/index-min.js"></script>
@@ -18,11 +61,8 @@
     <script src="/assets/js/const.js"></script>
     <script src="/assets/js/leaflet.offline.min.js"></script>
     <script src="/assets/js/storageLayer.js"></script>
-</head>
-
-<body>
-    <div id="map" class="map"></div>
-    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/debounce.js"></script>
+    <script src="/assets/js/script.js"></script>  
 </body>
 
 </html>

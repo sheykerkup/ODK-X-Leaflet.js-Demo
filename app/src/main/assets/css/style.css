@@ -1,7 +1,8 @@
 body {
-  background-color: lightblue;
+  background-color: #0c6dbc;
 }
 .map {
+  margin-top: 12%;
   width: 100%;
   height: 100vh;
 }
@@ -20,4 +21,59 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+header {
+  /* justify-content: space-between; */
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0373ce;
+  padding: 10px;
+  z-index: 9999;
+  height: 6%;
+}
+nav {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+.flex-1 {
+  flex: 2;
+}
+header i{
+  font-size: 40px;
+}
+.flex-9 {
+  flex: 8;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.menu{
+  height: 100vh;
+  width: 80%;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: #2196f3;
+  color: white;
+  /* margin: 10px; */
+  padding: 10px;
+}
+
+.list-settings {
+  list-style: none;
+}
+
+.list-settings li {
+  margin: 10px 0 10px 0;
 }

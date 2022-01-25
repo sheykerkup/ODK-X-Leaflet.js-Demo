@@ -1,8 +1,8 @@
 function storageLayer(baseLayer, layerswitcher) {
     let layer;
   
-    const getGeoJsonData = () => getStorageInfo(urlTemplate)
-      .then((tiles) => getStoredTilesAsJson(baseLayer, tiles));
+    const getGeoJsonData = () => LeafletOffline.getStorageInfo(urlTemplate)
+      .then((tiles) => LeafletOffline.getStoredTilesAsJson(baseLayer, tiles));
   
     const addStorageLayer = () => {
       getGeoJsonData().then((geojson) => {
