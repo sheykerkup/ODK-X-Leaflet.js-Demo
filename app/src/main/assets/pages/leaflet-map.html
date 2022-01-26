@@ -16,8 +16,9 @@
 <body>
     <header>
         <nav>
-            <div class="flex-1"><i class="fas fa-bars"></i></div>
-            <div class="flex-9">Leaflet Demo with leaflet-offline</div>
+            <div class="flex-1" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <div style="flex:auto">Leaflet Demo with leaflet-offline</div>
+            <div id="close" class="hide"><i class="fas fa-window-close"></i></div>
         </nav>
     </header>
     <div id="progress-wrapper" class="collapse pb-2">
@@ -31,7 +32,7 @@
         </div>
       </div>
     <div id="map" class="map"></div>
-    <div class="menu show">
+    <div id="menu" class="menu hide">
         <h1>Settings</h1>
         <ul class="list-settings">
             <li>
@@ -41,13 +42,21 @@
                     <option value="osm_map">OpenStreetMap
                     </option>
                     <option value="map_box">MapBox</option>
+                    <option value="custom">Custom</option>
                 </select>
             </li>
             <li>
                 <label for="marker-color">Change Marker Color</label>
-                <input type="color">
+                <input type="color" id="marker-color">
             </li>
-
+            <li>
+                <label for="pre-load">Pre-load tiles</label>
+                <input type="checkbox" name="pre-load" id="pre-load" value="true" checked>
+            </li>
+            <li>
+                <label for="show-marker">Show marker</label>
+                <input type="checkbox" name="show-marker" id="show-marker" value="true" checked>
+            </li>
             <!-- <li>
                 <label for="marker-color">Change Marker Color</label>
                 <input type="color">

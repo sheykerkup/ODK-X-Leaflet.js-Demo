@@ -7,7 +7,6 @@ let mapOptions = {
 // Creating a map object
 let map = new L.map('map', mapOptions);
 
-
 //add marker
 let marker = new L.Marker([4.04717, 9.75949]);
 marker.addTo(map)
@@ -20,6 +19,7 @@ const baseLayer = L.tileLayer
     minZoom: 10,
   })
   .addTo(map);
+
 // add buttons to save tiles in area viewed
 const control = L.control.savetiles(baseLayer, {
   zoomlevels: [10, 13], // optional zoomlevels to save, default current zoomlevel
@@ -70,3 +70,22 @@ baseLayer.on('savetileend', () => {
   progress += 1;     
   showProgress();
 });
+
+addListeners();
+
+function addListeners() {
+  document.getElementById('menu-icon').addEventListener('click', () => {
+      document.getElementById('menu').classList.remove('hide'); 
+      document.getElementById('menu').classList.add('show'); 
+      document.getElementById('close').classList.add('show'); 
+  });  
+ 
+  document.getElementById('close').addEventListener('click', () => {
+    document.getElementById('menu').classList.remove('show'); 
+    document.getElementById('menu').classList.add('hide'); 
+    document.getElementById('close').classList.add('hide'); 
+    document.getElementById('close').classList.remove('show'); 
+
+});  
+
+}
