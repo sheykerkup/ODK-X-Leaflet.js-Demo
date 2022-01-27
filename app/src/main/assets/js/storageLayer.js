@@ -1,4 +1,4 @@
-function storageLayer(baseLayer, layerswitcher) {
+let storageLayer =  (baseLayer, layerswitcher) => {
     let layer;
   
     const getGeoJsonData = () => LeafletOffline.getStorageInfo(urlTemplate)

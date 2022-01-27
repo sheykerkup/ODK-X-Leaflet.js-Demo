@@ -18,7 +18,6 @@
         <nav>
             <div class="flex-1" id="menu-icon"><i class="fas fa-bars"></i></div>
             <div style="flex:auto">Leaflet Demo with leaflet-offline</div>
-            <div id="close" class="hide"><i class="fas fa-window-close"></i></div>
         </nav>
     </header>
     <div id="progress-wrapper" class="collapse pb-2">
@@ -33,7 +32,11 @@
       </div>
     <div id="map" class="map"></div>
     <div id="menu" class="menu hide">
-        <h1>Settings</h1>
+        <div class="flex flex-align-center flex-around">
+            <h1>Settings</h1> 
+            <div id="close" class="hide"><i class="fas fa-window-close"></i></div>
+        </div>
+
         <ul class="list-settings">
             <li>
                 <label for="providers">Select Providers</label>
@@ -47,7 +50,7 @@
             </li>
             <li>
                 <label for="marker-color">Change Marker Color</label>
-                <input type="color" id="marker-color">
+                <input type="color" id="marker-color" value="#0c6dbc">
             </li>
             <li>
                 <label for="pre-load">Pre-load tiles</label>
@@ -71,6 +74,7 @@
     <script src="/assets/js/leaflet.offline.min.js"></script>
     <script src="/assets/js/storageLayer.js"></script>
     <script src="/assets/js/debounce.js"></script>
+    <script src="/assets/js/customise.js"></script>
     <script src="/assets/js/script.js"></script>  
 </body>
 
