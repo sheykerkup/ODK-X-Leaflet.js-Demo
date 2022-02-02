@@ -15,6 +15,12 @@
    markerDivElement.setAttribute("style", `color:${color}`);
  }
 
+ //load tileLayer
+ let loadTileLayer = (tileProvider) => {
+    baseLayer = L.tileLayer.offline(mapProviders[tileProvider].url , mapProviders[tileProvider].options)
+    .addTo(map);
+ }
+
 
  let addListeners = () => {
 
@@ -34,6 +40,7 @@
 
   });  
 
+  //detect change in marker color
   document.querySelector('#marker-color').addEventListener('change', e => {
       const color = e.target.value;
       console.log(color);
@@ -41,4 +48,11 @@
       changeNonImageMarkerColor(color);
   });
 
-  }
+  //detect change in maps provider
+  document.querySelector('#providers').addEventListener('change', e => {
+    const provider = e.target.value;
+
+    console.log(provider);
+    loadTileLayer(provider);
+  });
+ }

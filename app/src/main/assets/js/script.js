@@ -1,25 +1,10 @@
+let baseLayer;
+let map;
+
 window.addEventListener("DOMContentLoaded", e => {
   addListeners();
   loadCurrentPosition();
 });
-
-let loadCurrentPosition = () => {
-  let location = [4.04717, 9.75949];
-  window.navigator.geolocation.getCurrentPosition( position => {
-     console.log(position);
-
-        location[0] = position.coords.latitude;
-        location[1] = position.coords.longitude;
-        initMap(location);
-      },
-      error => {
-        console.log(error);
-        alert("Maps will display a custom location since locations data could not be accessed");
-        initMap(location);
-  });
-
-  return location;
-}
 
 let initMap = (mapCenter) => {
 
@@ -30,23 +15,14 @@ let initMap = (mapCenter) => {
   }
 
   // Creating a map object
-  let map = new L.map('map', mapOptions);
+  map = new L.map('map', mapOptions);
 
   //add marker
   let marker = useNonImageMarker(mapCenter);
   marker.addTo(map)
 
-  // let marker = new L.Marker(mapCenter);
-  // marker.addTo(map)
-
   // offline baselayer, will use offline source if available
-  const baseLayer = L.tileLayer
-    .offline(urlTemplate , {
-      attribution: mapAttributionOSM,
-      subdomains: 'abc',
-      minZoom: defautZoomLevel,
-    })
-    .addTo(map);
+  loadTileLayer(defaultTileLayer);
 
   // add buttons to save tiles in area viewed
   const control = L.control.savetiles(baseLayer, {
@@ -99,5 +75,23 @@ let initMap = (mapCenter) => {
     showProgress();
   });
 
+}
+
+let loadCurrentPosition = () => {
+  let location = [4.04717, 9.75949];
+  window.navigator.geolocation.getCurrentPosition( position => {
+     console.log(position);
+
+        location[0] = position.coords.latitude;
+        location[1] = position.coords.longitude;
+        initMap(location);
+      },
+      error => {
+        console.log(error);
+        alert("Maps will display a custom location since locations data could not be accessed");
+        initMap(location);
+  });
+
+  return location;
 }
 
