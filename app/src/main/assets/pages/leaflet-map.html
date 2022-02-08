@@ -14,23 +14,26 @@
 </head>
 
 <body>
-    <header>
+    <header class="column">
         <nav>
             <div class="flex-1" id="menu-icon"><i class="fas fa-bars"></i></div>
             <div style="flex:auto">Leaflet Demo with leaflet-offline</div>
         </nav>
-    </header>
-    <div id="progress-wrapper" class="collapse pb-2">
-        <div class="d-flex">
-          <div class="">Download Progress</div>
-          <div class="flex-grow-1 ml-2 my-1">
-            <div id="progress" class="progress">
-              <div id="progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">495</div>
+        <div id="progress-wrapper" class="collapse pb-2">
+            <div class="d-flex">
+              <div class="">Download Progress</div>
+              <div class="flex-grow-1 ml-2 my-1">
+                <div id="progress" class="progress">
+                  <div id="progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">495</div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    <div id="map" class="map"></div>
+    </header>
+    <div id="map-container">
+            <div id="map" class="map"></div>
+    </div>
+
     <div id="menu" class="menu hide">
         <div class="flex flex-align-center flex-around">
             <h1>Settings</h1> 
@@ -51,10 +54,10 @@
                 <label for="marker-color">Change Marker Color</label>
                 <input type="color" id="marker-color" value="#0c6dbc">
             </li>
-            <li>
+            <!-- <li>
                 <label for="pre-load">Pre-load tiles</label>
                 <input type="checkbox" name="pre-load" id="pre-load" value="true" checked>
-            </li>
+            </li> -->
             <li>
                 <label for="show-marker">Show marker</label>
                 <input type="checkbox" name="show-marker" id="show-marker" value="true" checked>

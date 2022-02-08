@@ -21,6 +21,11 @@
     .addTo(map);
  }
 
+ let reloadMap = () => {
+  map.remove();
+   initMap();
+ }
+
 
  let addListeners = () => {
 
@@ -53,6 +58,8 @@
     const provider = e.target.value;
 
     console.log(provider);
-    loadTileLayer(provider);
+    defaultTileLayer = provider;
+    reloadMap();
+    // loadTileLayer(provider);
   });
  }

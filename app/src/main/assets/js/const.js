@@ -2,11 +2,12 @@ const urlTemplate = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const  wmtsUrlTemplate =
   'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=EPSG:3857&layer={layer}&tilematrix={z}&tilerow={y}&tilecol={x}&format=image%2Fpng';
 
-const defautZoomLevel = 10;
+const defautZoomLevel = 12;
 const mapAttributionOSM = 'Map data {attribution.OpenStreetMap}';
 const defaultSaveZoomLevels = [10, 13];
+const prefetchZoomLevels = [9, 11];
 const mapboxToken = "YOUR-MAPBOX-API-TOKEN-HERE";
-const defaultTileLayer = "google";
+let defaultTileLayer = "osm";
 
 const mapBoxMapUrlAndOptions = {
     url: `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
@@ -37,11 +38,18 @@ const googleMapsUrlAndOptions = {
   }
 
 
-}  
+} ;
+
+const customMapsUrlAndOptions = {
+  url: '/assets/images/custom/OSMPublicTransport/{z}/{x}/{y}.png',
+  options: {
+    maxZoom: 12
+  }
+}
 
 const mapProviders = {
   osm: osmMapUrlAndOptions,
   google: googleMapsUrlAndOptions,
   mapbox: mapBoxMapUrlAndOptions,
-  custom: {}
+  custom: customMapsUrlAndOptions
 }

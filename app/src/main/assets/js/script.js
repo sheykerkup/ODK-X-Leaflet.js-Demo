@@ -1,16 +1,18 @@
 let baseLayer;
 let map;
+let loc;
 
 window.addEventListener("DOMContentLoaded", e => {
+  loc = [4.041501, 9.749851];
   addListeners();
   loadCurrentPosition();
 });
 
-let initMap = (mapCenter) => {
+let initMap = () => {
 
   // Creating map options
   let mapOptions = {
-      center: mapCenter,
+      center: loc,
       zoom: defautZoomLevel
   }
 
@@ -18,7 +20,7 @@ let initMap = (mapCenter) => {
   map = new L.map('map', mapOptions);
 
   //add marker
-  let marker = useNonImageMarker(mapCenter);
+  let marker = useNonImageMarker(loc);
   marker.addTo(map)
 
   // offline baselayer, will use offline source if available
@@ -65,6 +67,7 @@ let initMap = (mapCenter) => {
   }, 10);
 
   baseLayer.on('savestart', (e) => {
+    debugger;
     progress = 0;
     total = e._tilesforSave.length;
     document.getElementById('progress-wrapper').classList.add('show');  
@@ -78,20 +81,19 @@ let initMap = (mapCenter) => {
 }
 
 let loadCurrentPosition = () => {
-  let location = [4.04717, 9.75949];
   window.navigator.geolocation.getCurrentPosition( position => {
      console.log(position);
 
-        location[0] = position.coords.latitude;
-        location[1] = position.coords.longitude;
-        initMap(location);
+     loc[0] = position.coords.latitude;
+     loc[1] = position.coords.longitude;
+        initMap();
+        //pre-fetch tiles at z
+        // LeafletOffline.downloadTile(tileInfo.url).then(blob => LeafletOffline.saveTile(tileInfo, blob))
       },
       error => {
         console.log(error);
         alert("Maps will display a custom location since locations data could not be accessed");
-        initMap(location);
+        initMap();
   });
-
-  return location;
 }
 
