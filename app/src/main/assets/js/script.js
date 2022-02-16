@@ -1,37 +1,48 @@
-// Creating map options
-let mapOptions = {
-    center: [4.04717, 9.75949],
-    zoom: 10
+let baseLayer;
+let map;
+let loc;
+let marker;
+
+window.addEventListener("DOMContentLoaded", e => {
+	loc = [4.041501, 9.749851];
+	addListeners();
+	loadCurrentPosition();
+});
+
+let initMap = () => {
+
+	// Creating map options
+	let mapOptions = {
+		center: loc,
+		zoom: defautZoomLevel
+	}
+
+	// Creating a map object
+	map = new L.map('map', mapOptions);
+
+	//add marker
+	marker = useNonImageMarker(loc);
+	marker.addTo(map)
+
+	// offline baselayer, will use offline source if available
+	loadTileLayer(defaultTileLayer);
+
 }
 
-// Creating a map object
-let map = new L.map('map', mapOptions);
+let loadCurrentPosition = () => {
+	window.navigator.geolocation.getCurrentPosition(position => {
+		console.log(position);
 
-// Creating a Layer object
-let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	useCache: true,
-	crossOrigin: true,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
-
-// Adding layer to the map
-map.addLayer(layer);
-
-// Listen to cache hits and misses and spam the console
-// The cache hits and misses are only from this layer, not from the WMS layer.
-layer.on('tilecachehit',function(ev){
-	console.log('Cache hit: ', ev.url);
-});
-layer.on('tilecachemiss',function(ev){
-	console.log('Cache miss: ', ev.url);
-});
-layer.on('tilecacheerror',function(ev){
-	console.log('Cache error: ', ev.tile, ev.error);
-});
-
-//add marker
-let marker = new L.Marker([4.04717, 9.75949]);
-marker.addTo(map)
-marker.bindPopup('A sample location.<br> Douala Pk8.')
-        .openPopup();
+		loc[0] = position.coords.latitude;
+		loc[1] = position.coords.longitude;
+		initMap();
+		//pre-fetch tiles at z
+		// LeafletOffline.downloadTile(tileInfo.url).then(blob => LeafletOffline.saveTile(tileInfo, blob))
+	},
+		error => {
+			console.log(error);
+			alert("Maps will display a custom location since locations data could not be accessed");
+			initMap();
+		});
+}
 

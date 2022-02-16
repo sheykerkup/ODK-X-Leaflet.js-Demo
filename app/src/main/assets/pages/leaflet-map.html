@@ -6,18 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map</title>
-
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/v4-shims.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/leaflet.css">
 </head>
 
 <body>
-    <div id="map" class="map"></div>
+    <header class="column">
+        <nav>
+            <div class="flex-1" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <div style="flex:auto">Leaflet Demo with leaflet-offline</div>
+        </nav>
+    </header>
+    <div id="map-container">
+        <div id="map" class="map"></div>
+    </div>
 
-<!--    <script src="/assets/js/leaflet.js"></script>-->
+    <div id="menu" class="menu hide">
+        <div class="flex flex-align-center flex-around">
+            <h1>Settings</h1>
+            <div id="close" class="hide"><i class="fas fa-window-close"></i></div>
+        </div>
+
+        <ul class="list-settings">
+            <li>
+                <label for="providers">Select Providers</label>
+                <select name="providers" id="providers">
+                    <option value="osm" select="selected">OpenStreetMap</option>
+                    <option value="google">Google Maps</option>
+                    <option value="mapbox">MapBox</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </li>
+            <li>
+                <label for="marker-color">Change Marker Color</label>
+                <input type="color" id="marker-color" value="#0c6dbc">
+            </li>
+            <!-- <li>
+                <label for="pre-load">Pre-load tiles</label>
+                <input type="checkbox" name="pre-load" id="pre-load" value="true" checked>
+            </li> -->
+            <li>
+                <label for="show-marker">Show marker</label>
+                <input type="checkbox" name="show-marker" id="show-marker" checked>
+            </li>
+            <!-- <li>
+                <label for="marker-color">Change Marker Color</label>
+                <input type="color">
+            </li> -->
+        </ul>
+    </div>
+
+    <!--    <script src="/assets/js/leaflet.js"></script>-->
     <script src="/assets/js/leaflet-src.js"></script>
     <script src="/assets/js/pouchdb.js"></script>
     <script src="/assets/js/L.TileLayer.PouchDBCached.js"></script>
+    <script src="/assets/js/const.js"></script>
+    <script src="/assets/js/customise.js"></script>
     <script src="/assets/js/script.js"></script>
 </body>
 

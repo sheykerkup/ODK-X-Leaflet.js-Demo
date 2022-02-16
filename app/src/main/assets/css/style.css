@@ -1,7 +1,9 @@
 body {
-  background-color: lightblue;
+  background-color: #0c6dbc;
 }
 .map {
+  position: fixed !important;
+  top: 6%;
   width: 100%;
   height: 100vh;
 }
@@ -9,6 +11,21 @@ body {
   display: flex;
   justify-content: center;
 }
+.flex-align-center {
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-around {
+  justify-content: space-around;
+}
+
 .button {
   background-color: #4CAF50;
   border: none;
@@ -20,4 +37,134 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+header {
+  /* justify-content: space-between; */
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0373ce;
+  padding: 10px;
+  z-index: 9999;
+  /* height: 6%; */
+  height: fit-content;
+}
+nav {
+  display: flex;
+  color: white;
+  align-items: center;
+  flex: 10;
+}
+.flex-1 {
+  flex: 2;
+}
+header i, #close{
+  font-size: 40px;
+}
+
+.flex-9 {
+  flex: 8;
+}
+.flex-2 {
+  flex: 2;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.menu{
+  height: 100vh;
+  width: 80%;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: #26232c;
+  color: white;
+  /* margin: 10px; */
+  padding: 10px;
+}
+
+.list-settings {
+  list-style: none;
+}
+
+.list-settings li {
+  margin: 10px 0 10px 0;
+}
+
+.custom-icon {
+  font-size: 50px;
+  color: #0c6dbc;
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+.pb-2, .py-2 {
+  padding-bottom: 0.5rem!important;
+}
+.ml-2, .mx-2 {
+  margin-left: 0.5rem!important;
+}
+.mb-1, .my-1 {
+  margin-bottom: 0.25rem!important;
+}
+.mt-1, .my-1 {
+  margin-top: 0.25rem!important;
+}
+.flex-grow-1 {
+  -ms-flex-positive: 1!important;
+  flex-grow: 1!important;
+}
+@keyframes progress-bar-stripes {
+  from {
+      background-position: 1rem 0
+  }
+
+  to {
+      background-position: 0 0
+  }
+}
+
+.progress {
+  display: -ms-flexbox;
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: .75rem;
+  background-color: #e9ecef;
+  border-radius: .25rem
+}
+
+.progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #79a85d;
+  transition: width .6s ease
+}
+
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+      background-position: 1rem 0
+  }
+
+  to {
+      background-position: 0 0
+  }
 }
